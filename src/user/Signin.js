@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../core/Layouts";
-import { authenticate, signin } from "../auth";
+import { authenticate, isAuthenticated, signin } from "../auth";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -30,6 +30,7 @@ const Signin = () => {
   };
 
   const { email, password, loading, error, redirectToReferer } = values;
+  const { user } = isAuthenticated();
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -79,10 +80,17 @@ const Signin = () => {
     );
   const redirectUser = () => {
     if (redirectToReferer) {
-      return <Navigate to="/" />;
+      if (user && user.role === 1) {
+        return <Navigate to="/admin/dashboard" />;
+      } else {
+        return <Navigate to="/user/dashboard" />;
+      }
+    }
+    if(isAuthenticated()) {
+        return <Navigate to="/" />;
     }
   };
-
+ 
   return (
     <Layout
       title="Sign in to Prompt Hub"

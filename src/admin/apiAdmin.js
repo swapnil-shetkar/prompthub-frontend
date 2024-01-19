@@ -10,13 +10,20 @@ export const createCategory = (userId, token, category) => {
         },
         body: JSON.stringify(category)
     })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => {
-            console.log(err);
-        });
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(data => {
+                throw new Error(data.message || 'Category creation failed');
+            });
+        }
+        return response.json();
+    })
+    .catch(error => {
+        console.error('Error creating category:', error);
+        throw new Error('Category creation failed');
+    });
 };
+
 
 export const createProduct = (userId, token, product) => {
     return fetch(`${API}/product/create/${userId}`, {

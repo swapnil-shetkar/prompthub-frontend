@@ -8,6 +8,7 @@ import AdminRoutes from "./auth/adminRoute";
 import AdminDashboard from "./user/adminDashboard";
 import AddCategory from "./admin/AddCategory";
 import AddProduct from "./admin/AddProduct";
+import Shop from "./core/Shop";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
         <Route element={<PrivateRoutes />}>
           <Route element={<Dashboard />} path="/user/dashboard" />
         </Route>

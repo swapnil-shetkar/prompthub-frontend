@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route  } from "react-router-dom";
 import Signin from "./user/Signin";
 import Signup from "./user/Signup";
 import Home from "./core/Home";
@@ -9,6 +9,9 @@ import AdminDashboard from "./user/adminDashboard";
 import AddCategory from "./admin/AddCategory";
 import AddProduct from "./admin/AddProduct";
 import Shop from "./core/Shop";
+import Product from "./core/Product";
+import Cart from "./core/Cart";
+import Orders from "./admin/order";
 
 function App() {
   return (
@@ -18,6 +21,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
         <Route element={<PrivateRoutes />}>
           <Route element={<Dashboard />} path="/user/dashboard" />
         </Route>
@@ -26,6 +31,7 @@ function App() {
           <Route element={<AdminDashboard />} path="/admin/dashboard" />
           <Route element={<AddCategory />} path="/create/category" />
           <Route element={<AddProduct />} path="/create/product" />
+          <Route element={<Orders />} path="/admin/orders" />
         </Route>
 
       </Routes>

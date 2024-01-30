@@ -12,6 +12,9 @@ import Shop from "./core/Shop";
 import Product from "./core/Product";
 import Cart from "./core/Cart";
 import Orders from "./admin/order";
+import Profile from "./user/Profile";
+import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/UpdateProduct";
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route element={<PrivateRoutes />}>
           <Route element={<Dashboard />} path="/user/dashboard" />
+          <Route element={<Profile />} path="/profile/:userId" />
         </Route>
 
         <Route element={< AdminRoutes/>}>
@@ -32,6 +36,8 @@ function App() {
           <Route element={<AddCategory />} path="/create/category" />
           <Route element={<AddProduct />} path="/create/product" />
           <Route element={<Orders />} path="/admin/orders" />
+          <Route element={<ManageProducts />} path="/admin/products" />
+          <Route element={<UpdateProduct />} path="/admin/product/update/:productId" />
         </Route>
 
       </Routes>

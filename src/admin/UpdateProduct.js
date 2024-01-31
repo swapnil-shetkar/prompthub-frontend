@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../core/Layouts';
 import { isAuthenticated } from '../auth';
 import { useParams, Navigate, } from 'react-router-dom';
-import { getProduct, getCategories, updateProduct } from './ApiAdmin';
+import { getProduct, getCategories, updateProductData } from './ApiAdmin';
 
-const UpdateProduct = ({ match }) => {
+const UpdateProduct = () => {
     const { productId } = useParams();
     const [values, setValues] = useState({
         name: '',
@@ -86,7 +86,7 @@ const UpdateProduct = ({ match }) => {
         event.preventDefault();
         setValues({ ...values, error: '', loading: true });
 
-        updateProduct(productId, user._id, token, formData).then(data => {
+        updateProductData(productId, user._id, token, formData).then(data => {
             if (data.success === false) {
                 setValues({ ...values, error: data.message });
             } else {
@@ -111,7 +111,7 @@ const UpdateProduct = ({ match }) => {
             <h4>Post Photo</h4>
             <div className="form-group">
                 <label className="btn btn-secondary">
-                    <input onChange={handleChange('photo')} type="file" name="photo" accept="image/*" />
+                    <input onChange={handleChange('file')} type="file" name="file" accept="image/*" />
                 </label>
             </div>
 

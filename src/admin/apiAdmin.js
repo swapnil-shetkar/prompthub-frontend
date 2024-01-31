@@ -128,7 +128,7 @@ export const deleteProduct = (productId, userId, token) => {
         .catch(err => console.log(err));
 };
 
-export const updateProduct = (productId, userId, token, product) => {
+export const updateProductData = (productId, userId, token, product) => {
     return fetch(`${API}/product/update/${productId}/${userId}`, {
         method: 'PUT',
         headers: {

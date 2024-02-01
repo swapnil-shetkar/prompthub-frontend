@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Layout from './Layouts';
-import { getCart } from './cartHelpers';
-import Card from './Card';
-import Checkout from './Checkout';
+import Layout from './layouts';
+import { getCart } from './carthelpers';
+import Card from './card';
+import Checkout from './checkout';
 
 const Cart = () => {
     const [items, setItems] = useState([]);

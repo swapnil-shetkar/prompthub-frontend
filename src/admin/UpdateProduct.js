@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../core/Layouts';
+import Layout from '../core/layouts';
 import { isAuthenticated } from '../auth';
 import { useParams, Navigate, } from 'react-router-dom';
-import { getProduct, getCategories, updateProductData } from './ApiAdmin';
+import { getProduct, getCategories, updateProductData } from './apiadmin';
 
 const UpdateProduct = () => {
     const { productId } = useParams();

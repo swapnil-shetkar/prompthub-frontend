@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import Layout from "../core/Layouts";
+import Layout from "../core/layouts";
 import { authenticate, isAuthenticated, signin } from "../auth";
 
 const Signin = () => {

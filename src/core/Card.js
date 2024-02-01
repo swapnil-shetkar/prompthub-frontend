@@ -1,8 +1,8 @@
 import React,{ useState } from "react";
 import { Link, Navigate, } from "react-router-dom";
-import ShowImage from "./ShowImage";
+import ShowImage from "./showimage";
 import moment from 'moment';
-import { addItem, updateItem, removeItem } from "./cartHelpers";
+import { addItem, updateItem, removeItem } from "./carthelpers";
 
 const Card = ({
   product,
@@ -96,7 +96,7 @@ const Card = ({
         <button
           onClick={() => {
             removeItem(product._id);
-            // setRun(!run); // run useEffect in parent Cart
+            setRun(!run); // run useEffect in parent Cart
           }}
           className="btn btn-outline-danger mt-2 mb-2"
         >

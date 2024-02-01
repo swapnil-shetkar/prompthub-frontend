@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import Layout from '../core/Layouts';
+import Layout from '../core/layouts';
 import { isAuthenticated } from '../auth';
 import { Navigate } from 'react-router-dom';
-import { read, update, updateUser } from './apiUser';
+import { read, update, updateUser } from './apiuser';
 
 const Profile = () => {
     const [values, setValues] = useState({

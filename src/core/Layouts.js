@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./Menu";
+import Menu from "./menu";
 import "../styles.css";
 
 const Layout = ({

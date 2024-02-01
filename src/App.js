@@ -1,20 +1,20 @@
 import { Routes, Route  } from "react-router-dom";
-import Signin from "./user/Signin";
-import Signup from "./user/Signup";
-import Home from "./core/Home";
-import Dashboard from "./user/userDashboard";
-import PrivateRoutes from "./auth/PrivateRoute";
-import AdminRoutes from "./auth/adminRoute";
-import AdminDashboard from "./user/adminDashboard";
-import AddCategory from "./admin/AddCategory";
-import AddProduct from "./admin/AddProduct";
-import Shop from "./core/Shop";
-import Product from "./core/Product";
-import Cart from "./core/Cart";
+import Signin from "./user/signin";
+import Signup from "./user/signup";
+import Home from "./core/home";
+import Dashboard from "./user/userdashboard";
+import PrivateRoutes from "./auth/privateroute";
+import AdminRoutes from "./auth/adminroute";
+import AdminDashboard from "./user/admindashboard";
+import AddCategory from "./admin/addcategory";
+import AddProduct from "./admin/addproduct";
+import Shop from "./core/shop";
+import Product from "./core/product";
+import Cart from "./core/cart";
 import Orders from "./admin/order";
-import Profile from "./user/Profile";
-import ManageProducts from "./admin/ManageProducts";
-import UpdateProduct from "./admin/UpdateProduct";
+import Profile from "./user/profile";
+import ManageProducts from "./admin/manageproducts";
+import UpdateProduct from "./admin/updateproduct";
 
 function App() {
   return (

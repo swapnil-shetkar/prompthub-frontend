@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getCategories, list } from "./apiCore";
-import Card from "./Card";
+import { getCategories, list } from "./apicore";
+import Card from "./card";
 
 const Search = () => {
   const [data, setData] = useState({

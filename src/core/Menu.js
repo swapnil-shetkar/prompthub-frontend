@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
-import { itemTotal } from "./cartHelpers";
+import { itemTotal } from "./carthelpers";
 
 const Menu = () => {
   const location = useLocation();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layouts";
+import Layout from "../core/layouts";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
-import { getProducts, deleteProduct } from "./ApiAdmin";
+import { getProducts, deleteProduct } from "./apiadmin";
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import Layout from "../core/Layouts";
+import Layout from "../core/layouts";
 import { signup } from "../auth";
 
 const Signup = () => {

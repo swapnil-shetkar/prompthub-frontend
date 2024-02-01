@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layouts";
+import Layout from "../core/layouts";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
-import { createProduct, getCategories } from "./ApiAdmin";
+import { createProduct, getCategories } from "./apiadmin";
 
 const AddProduct = () => {
   const [values, setValues] = useState({

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { read, listRelated } from './apiCore';
+import { read, listRelated } from './apicore';
 import { useParams } from "react-router-dom";
-import Card from './Card';
-import Layout from './Layouts';
+import Card from './card';
+import Layout from './layouts';
 
 const Product = props => {
     const [product, setProduct] = useState({});

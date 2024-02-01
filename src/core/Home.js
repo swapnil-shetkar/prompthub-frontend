@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Layout from "./Layouts";
-import { getProducts } from "./apiCore";
-import Card from './Card'; 
-import Search from './Search';
+import Layout from "./layouts";
+import { getProducts } from "./apicore";
+import Card from './card'; 
+import Search from './search';
 
 const Home = () => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -47,21 +47,21 @@ const Home = () => {
       className="container-fluid"
     >
       {error && <div className="alert alert-danger">{error}</div>}
-      <Search/>
+      <Search />
       <h2 className='mb-4'>New Arrival</h2>
       <div className='row'>
-        {productsByArrival.map((product, i) => (
-          <div className="col-4 mb-3">
-          <Card key={i} product={product}/> 
+        {productsByArrival.map((product) => (
+          <div key={product._id} className="col-4 mb-3">
+            <Card product={product} />
           </div>
         ))}
       </div>
 
       <h2 className='mb-4'>Best Sellers</h2>
       <div className='row'>
-        {productsBySell.map((product, i) => (
-          <div className="col-4 mb-3">
-          <Card key={i} product={product}/> 
+        {productsBySell.map((product) => (
+          <div key={product._id} className="col-4 mb-3">
+            <Card product={product} />
           </div>
         ))}
       </div>

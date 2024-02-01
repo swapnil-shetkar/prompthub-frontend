@@ -4,9 +4,9 @@ import {
   getBraintreeClientToken,
   processPayment,
   createOrder,
-} from "./apiCore";
-import { emptyCart } from "./cartHelpers";
-import Card from "./Card";
+} from "./apicore";
+import { emptyCart } from "./carthelpers";
+import Card from "./card";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 // import "braintree-web"; // not using this package
@@ -42,8 +42,12 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
   }, []);
 
   const handleAddress = (event) => {
-    setData({ ...data, address: event.target.value });
+    setData((prevData) => ({
+      ...prevData,
+      address: event.target.value
+    }));
   };
+  
 
   const getTotal = () => {
     return products.reduce((currentValue, nextValue) => {
@@ -99,20 +103,20 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
             };
 
             createOrder(userId, token, createOrderData)
-                .then(response => {
-                    emptyCart(() => {
-                        setRun(!run); // run useEffect in parent Cart
-                        console.log('payment success and empty cart');
-                        setData({
-                            loading: false,
-                            success: true
-                        });
-                    });
-                })
-                .catch(error => {
-                    console.log(error);
-                    setData({ loading: false });
+              .then((response) => {
+                emptyCart(() => {
+                  setRun(!run);
+                  console.log("payment success and empty cart");
+                  setData({
+                    loading: false,
+                    success: true,
+                  });
                 });
+              })
+              .catch((error) => {
+                console.log(error);
+                setData({ loading: false });
+              });
           })
           .catch((error) => {
             console.log(error);
@@ -129,10 +133,11 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
     <div onBlur={() => setData({ ...data, error: "" })}>
       {data.clientToken !== null && products.length > 0 ? (
         <div>
-          <div className="gorm-group mb-3">
-            <label className="text-muted">Delivery address:</label>
-            <textarea
+          <div className="form-group mb-3">
+            <label className="text-muted">Delivery email address:</label>
+            <input
               onChange={handleAddress}
+              type="email"
               className="form-control"
               value={data.address}
               placeholder="Type your delivery address here..."
@@ -165,19 +170,23 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
     </div>
   );
 
-  const showSuccess = success => (
-      <div className="alert alert-info" style={{ display: success ? '' : 'none' }}>
-          Thanks! Your payment was successful!
-      </div>
+  const showSuccess = (success) => (
+    <div
+      className="alert alert-info"
+      style={{ display: success ? "" : "none" }}
+    >
+      Thanks! Your payment was successful!
+    </div>
   );
 
-  const showLoading = loading => loading && <h2 className="text-danger">Loading...</h2>;
+  const showLoading = (loading) =>
+    loading && <h2 className="text-danger">Loading...</h2>;
 
   return (
     <div>
       <h2>Total: ${getTotal()}</h2>
       {showLoading(data.loading)}
-            {showSuccess(data.success)}
+      {showSuccess(data.success)}
       {showError(data.error)}
       {showCheckout()}
     </div>
